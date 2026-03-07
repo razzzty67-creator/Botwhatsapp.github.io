@@ -8,76 +8,70 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
-font-family:Poppins, sans-serif;
-background:#050505;
+font-family:Poppins;
 color:white;
-overflow:hidden;
+background:linear-gradient(270deg,#000,#0b0b0b,#111);
+background-size:600% 600%;
+animation:bgmove 15s infinite;
 }
 
-/* INTRO SCREEN */
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* INTRO */
+
 #intro{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
+height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 flex-direction:column;
 text-align:center;
-padding:30px;
-z-index:999;
-animation:fadeIn 1s;
+padding:20px;
+animation:fadeIn 1.5s;
 }
 
-#intro h1{
-color:#00ffe1;
-letter-spacing:2px;
+.logo{
+width:220px;
+margin-bottom:20px;
+animation:glow 2s infinite alternate;
 }
 
-#intro button{
-margin-top:20px;
-padding:12px 25px;
-background:#00ffe1;
+.banner{
+width:280px;
+margin-top:10px;
+border-radius:10px;
+}
+
+@keyframes glow{
+from{filter:drop-shadow(0 0 5px #ff00ff)}
+to{filter:drop-shadow(0 0 20px #ff00ff)}
+}
+
+button{
+margin-top:25px;
+padding:12px 30px;
 border:none;
+border-radius:6px;
+background:#ff00ff;
+color:white;
 font-weight:bold;
 cursor:pointer;
-border-radius:5px;
+transition:.3s;
 }
 
-#loading{
-display:none;
-margin-top:20px;
-font-size:14px;
-color:#00ffe1;
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px #ff00ff;
 }
 
-/* VIDEO INTRO */
-
-#videoIntro{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-z-index:998;
-justify-content:center;
-align-items:center;
-}
-
-#videoIntro video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* MAIN PORTAL */
+/* PORTAL */
 
 #portal{
 display:none;
@@ -92,8 +86,8 @@ align-items:center;
 }
 
 .clock{
-font-size:24px;
-color:#00ffe1;
+font-size:22px;
+color:#ff00ff;
 }
 
 .grid{
@@ -107,60 +101,47 @@ gap:20px;
 background:#111;
 padding:20px;
 border-radius:10px;
-transition:0.3s;
+transition:.3s;
 cursor:pointer;
 text-decoration:none;
 color:white;
-display:block;
 }
 
 .card:hover{
-background:#1c1c1c;
-transform:scale(1.05);
+transform:scale(1.07);
+background:#1a1a1a;
+box-shadow:0 0 15px #ff00ff50;
 }
 
 .card h3{
+color:#ff00ff;
 margin:0;
-color:#00ffe1;
 }
-
-/* animations */
 
 @keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
+from{opacity:0; transform:translateY(20px)}
+to{opacity:1; transform:translateY(0)}
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
 <div id="intro">
 
-<h1>MARGA GFC | GRAFIK FLOW COMMUNITY</h1>
+<img src="logo1.png" class="logo">
 
-<p>Halo, Calon Member GFC</p>
-<p>Ini Adalah Website GFC</p>
+<h1>GRAFIK FLOW COMMUNITY</h1>
+<p>Selamat datang di portal resmi komunitas GFC</p>
 
-<button onclick="enterPortal()">SAYA PAHAM & SIAP MASUK</button>
+<img src="logo2.png" class="banner">
 
-<div id="loading">MEMBUKA SISTEM...</div>
-
-</div>
-
-
-<!-- VIDEO INTRO -->
-<div id="videoIntro">
-
-<video id="introVideo" autoplay>
-<source src="https://files.catbox.moe/oz6e2n.mp4" type="video/mp4">
-</video>
+<button onclick="masuk()">MASUK KE PORTAL</button>
 
 </div>
 
 
-<!-- PORTAL -->
 <div id="portal">
 
 <div class="header">
@@ -172,51 +153,33 @@ to{opacity:1}
 
 <div class="card">
 <h3>Informasi Portal</h3>
-<p>Dokumentasi lengkap sistem.</p>
+<p>Dokumentasi sistem GFC</p>
 </div>
 
-<a class="card" href="https://chat.whatsapp.com/E8MAfR23QTe57ItkHFEVKb?mode=gi_t" target="_blank">
-<h3>GFC GEN 1 ✨</h3>
-<p>Pendaftaran anggota baru.</p>
+<a class="card" href="https://chat.whatsapp.com/E8MAfR23QTe57ItkHFEVKb?mode=gi_t">
+<h3>GFC GEN 1 👑</h3>
+<p>Gabung ke grup generasi pertama</p>
 </a>
 
 <div class="card">
 <h3>GFC GEN 2 🛠️</h3>
-<p>Gen 2 Coming Soon</p>
+<p>Coming Soon</p>
 </div>
 
-<a class="card" href="https://whatsapp.com/channel/0029Vb7EA5PFcow09JspfL3P" target="_blank">
+<a class="card" href="https://whatsapp.com/channel/0029Vb7EA5PFcow09JspfL3P">
 <h3>Saluran GFC 🪐</h3>
-<p>Ikuti saluran Grafik Flow Community</p>
+<p>Ikuti channel resmi komunitas</p>
 </a>
 
 </div>
 
 </div>
 
-
 <script>
 
-function enterPortal(){
-
-document.querySelector("button").style.display="none"
-document.getElementById("loading").style.display="block"
-
-setTimeout(()=>{
-
+function masuk(){
 document.getElementById("intro").style.display="none"
-document.getElementById("videoIntro").style.display="flex"
-
-let vid = document.getElementById("introVideo")
-
-vid.onended = function(){
-document.getElementById("videoIntro").style.display="none"
 document.getElementById("portal").style.display="block"
-document.body.style.overflow="auto"
-}
-
-},1500)
-
 }
 
 function updateClock(){
@@ -224,7 +187,6 @@ let now = new Date()
 let h = String(now.getHours()).padStart(2,"0")
 let m = String(now.getMinutes()).padStart(2,"0")
 let s = String(now.getSeconds()).padStart(2,"0")
-
 document.getElementById("clock").innerHTML = `${h}:${m}:${s}`
 }
 

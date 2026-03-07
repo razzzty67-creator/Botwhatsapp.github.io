@@ -3,126 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daftar Akun</title>
+<title>Pendaftaran</title>
 
 <style>
+
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
     height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
-    margin:0;
+    align-items:center;
+    background:black;
+    overflow:hidden;
 }
 
-.container{
-    background:white;
+/* Bintang */
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:transparent url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation:moveStars 60s linear infinite;
+    opacity:0.6;
+}
+
+@keyframes moveStars{
+    from{background-position:0 0;}
+    to{background-position:10000px 5000px;}
+}
+
+/* Form */
+.form-box{
+    position:relative;
+    z-index:2;
+    background:rgba(0,0,0,0.8);
     padding:30px;
-    width:320px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border-radius:10px;
+    width:300px;
+    color:white;
     text-align:center;
-
-    animation: fadeUp 0.8s ease;
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.form-box h2{
+    margin-bottom:20px;
 }
 
 input{
     width:100%;
     padding:10px;
     margin:8px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
+    border:none;
+    border-radius:5px;
 }
 
 button{
     width:100%;
     padding:10px;
+    margin-top:10px;
     border:none;
-    border-radius:8px;
-    background:#007bff;
-    color:white;
+    border-radius:5px;
+    background:#00ffcc;
+    color:black;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
 }
 
 button:hover{
-    background:#0056b3;
-    transform:scale(1.03);
+    background:#00cc99;
 }
 
-.result{
-    margin-top:10px;
-    font-weight:bold;
-}
-
-.error{
-    color:red;
-}
-
-.success{
-    color:green;
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<h2>Daftar</h2>
+<div class="form-box">
+<h2>Pendaftaran</h2>
 
-<input type="text" placeholder="Nama" id="nama">
-<input type="number" placeholder="Umur" id="umur">
+<form onsubmit="daftar(event)">
+<input type="text" placeholder="Nama" required>
+<input type="text" placeholder="Asal Kota" required>
+<input type="text" placeholder="Nama TikTok" required>
 
-<button onclick="cekUmur()">Daftar</button>
-
-<div class="result" id="hasil"></div>
+<button type="submit">Daftar</button>
+</form>
 
 </div>
 
 <script>
 
-function cekUmur(){
+function daftar(e){
+e.preventDefault()
 
-let umur = document.getElementById("umur").value;
-let hasil = document.getElementById("hasil");
+alert("Pendaftaran berhasil! Kamu akan diarahkan ke grup.")
 
-if(umur < 13){
-
-hasil.innerHTML = "❌ Umur harus 13+ untuk masuk.";
-hasil.className = "result error";
-
-}else{
-
-let kategori = "";
-
-if(umur <= 17){
-kategori = "Remaja";
-}
-else if(umur <= 30){
-kategori = "Dewasa Muda";
-}
-else{
-kategori = "Dewasa";
-}
-
-hasil.innerHTML = "✅ Pendaftaran diterima<br>Kategori umur: " + kategori;
-hasil.className = "result success";
-
-}
-
+window.location.href="https://chat.whatsapp.com/E8MAfR23QTe57ItkHFEVKb?mode=gi_t"
 }
 
 </script>

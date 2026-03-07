@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Razzziy Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+background:#050b12;
+font-family:'Orbitron',sans-serif;
+color:white;
+}
+
+/* BANNER */
+
+.banner{
+position:relative;
+height:220px;
+background:url("https://files.catbox.moe/6o7k2y.jpg") center/cover;
+}
+
+.banner::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+/* FOTO PROFIL */
+
+.profile{
+position:absolute;
+bottom:-50px;
+left:30px;
+width:110px;
+height:110px;
+border-radius:50%;
+border:4px solid white;
+box-shadow:0 0 15px rgba(255,255,255,0.8);
+background:url("https://files.catbox.moe/craqys.jpg") center/cover;
+z-index:2;
+}
+
+/* CONTAINER */
+
+.container{
+margin-top:70px;
+padding:20px;
+}
+
+/* GLITCH TEXT */
+
+.glitch{
+font-size:34px;
+font-weight:bold;
+position:relative;
+color:white;
+text-shadow:0 0 10px #00eaff;
+}
+
+.glitch::before,
+.glitch::after{
+content:"RAZZZIY";
+position:absolute;
+left:0;
+}
+
+.glitch::before{
+color:#00fff9;
+animation:glitch1 1s infinite;
+}
+
+.glitch::after{
+color:#ff00c8;
+animation:glitch2 1s infinite;
+}
+
+@keyframes glitch1{
+0%{transform:translate(0)}
+20%{transform:translate(-2px,-2px)}
+40%{transform:translate(2px,2px)}
+60%{transform:translate(-2px,2px)}
+80%{transform:translate(2px,-2px)}
+100%{transform:translate(0)}
+}
+
+@keyframes glitch2{
+0%{transform:translate(0)}
+20%{transform:translate(2px,2px)}
+40%{transform:translate(-2px,-2px)}
+60%{transform:translate(2px,-2px)}
+80%{transform:translate(-2px,2px)}
+100%{transform:translate(0)}
+}
+
+/* SUBTITLE */
+
+.subtitle{
+margin-top:8px;
+opacity:0.7;
+font-size:13px;
+letter-spacing:2px;
+}
+
+/* BUTTON */
+
+.button{
+display:block;
+margin-top:30px;
+width:260px;
+padding:14px;
+text-align:center;
+text-decoration:none;
+border-radius:10px;
+margin-left:auto;
+margin-right:auto;
+transition:0.3s;
+font-size:14px;
+letter-spacing:2px;
+}
+
+/* PORTAL BUTTON */
+
+.portal{
+border:2px solid #00eaff;
+color:#00eaff;
+box-shadow:0 0 10px #00eaff;
+}
+
+.portal:hover{
+background:#00eaff;
+color:black;
+box-shadow:0 0 25px #00eaff;
+}
+
+/* TIKTOK BUTTON */
+
+.tiktok{
+border:2px solid #333;
+background:#111;
+color:#aaa;
+margin-top:15px;
+}
+
+.tiktok:hover{
+background:#222;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:40px;
+font-size:12px;
+text-align:center;
+opacity:0.4;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="banner">
+<div class="profile"></div>
+</div>
+
+<div class="container">
+
+<div class="glitch">RAZZZIY</div>
+
+<div class="subtitle">
+SYSTEM DEVELOPER & CREATOR
+</div>
+
+<a href="index.html" class="button portal">
+ACCESS PORTAL GFC
+</a>
+
+<a href="https://tiktok.com/@razzziy" class="button tiktok">
+TIKTOK RAZZZIY
+</a>
+
+<div class="footer">
+System initialized by Razzziy © 2026<br>
+Secure Connection • GitHub Pages
+</div>
+
+</div>
+
+</body>
+</html>

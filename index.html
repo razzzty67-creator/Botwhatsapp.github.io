@@ -3,124 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PORTAL GFC</title>
+<title>GFC - Grafik Flow Community</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-font-family:Poppins;
+font-family:Inter,sans-serif;
+background:#05070d;
 color:white;
-background:linear-gradient(270deg,#000,#0b0b0b,#111);
-background-size:600% 600%;
-animation:bgmove 15s infinite;
+overflow:hidden;
 }
 
-@keyframes bgmove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* star background */
+
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:starsMove 80s linear infinite;
+opacity:.25;
+z-index:-1;
 }
 
-/* INTRO */
+@keyframes starsMove{
+from{transform:translate(0,0)}
+to{transform:translate(-500px,-500px)}
+}
 
-#intro{
-height:100vh;
+/* intro */
+
+#protocol-screen{
+position:fixed;
+width:100%;
+height:100%;
 display:flex;
-justify-content:center;
 align-items:center;
-flex-direction:column;
+justify-content:center;
+background:#05070d;
+z-index:10;
+animation:fadeIn 1s;
+}
+
+.protocol-box{
+background:#111;
+padding:35px;
+border-radius:12px;
 text-align:center;
-padding:20px;
-animation:fadeIn 1.5s;
+max-width:480px;
+box-shadow:0 0 25px rgba(0,255,255,.2);
+animation:zoomIn .8s ease;
 }
 
-.logo{
-width:220px;
-margin-bottom:20px;
-animation:glow 2s infinite alternate;
+.protocol-box h2{
+font-family:Orbitron;
+margin-top:0;
+letter-spacing:2px;
 }
 
-.banner{
-width:280px;
-margin-top:10px;
-border-radius:10px;
+.checkbox{
+width:22px;
+height:22px;
+border:2px solid #00eaff;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-right:8px;
+cursor:pointer;
 }
 
-@keyframes glow{
-from{filter:drop-shadow(0 0 5px #ff00ff)}
-to{filter:drop-shadow(0 0 20px #ff00ff)}
+.checkbox.active{
+background:#00eaff;
+color:black;
 }
 
 button{
-margin-top:25px;
-padding:12px 30px;
+margin-top:20px;
+padding:12px 25px;
 border:none;
-border-radius:6px;
-background:#ff00ff;
-color:white;
+background:#00eaff;
 font-weight:bold;
 cursor:pointer;
 transition:.3s;
 }
 
 button:hover{
-transform:scale(1.1);
-box-shadow:0 0 15px #ff00ff;
+transform:scale(1.05);
 }
 
-/* PORTAL */
+/* loader */
 
-#portal{
+#loader{
+position:fixed;
+width:100%;
+height:100%;
 display:none;
-padding:30px;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:#05070d;
+z-index:9;
+}
+
+.logo{
+animation:spin 6s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
+}
+
+.loader-text{
+margin-top:20px;
+font-family:Orbitron;
+color:#00eaff;
+letter-spacing:3px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:.4}
+50%{opacity:1}
+100%{opacity:.4}
+}
+
+/* portal */
+
+.wrap{
+display:none;
+padding:25px;
+height:100vh;
+overflow:auto;
 animation:fadeIn 1s;
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
+header{
+text-align:center;
+margin-bottom:30px;
+}
+
+h1{
+font-family:Orbitron;
+letter-spacing:4px;
 }
 
 .clock{
-font-size:22px;
-color:#ff00ff;
+font-size:30px;
+color:#00eaff;
+margin-top:10px;
 }
 
+/* cards */
+
 .grid{
-margin-top:30px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
 }
 
 .card{
 background:#111;
 padding:20px;
-border-radius:10px;
-transition:.3s;
+border-radius:12px;
 cursor:pointer;
-text-decoration:none;
-color:white;
+transition:.35s;
+position:relative;
 }
 
 .card:hover{
-transform:scale(1.07);
-background:#1a1a1a;
-box-shadow:0 0 15px #ff00ff50;
+transform:translateY(-6px) scale(1.04);
+box-shadow:0 0 20px rgba(0,255,255,.4);
 }
 
-.card h3{
-color:#ff00ff;
-margin:0;
+.card h2{
+font-family:Orbitron;
+font-size:17px;
+margin:10px 0;
+}
+
+.card p{
+font-size:13px;
+opacity:.7;
 }
 
 @keyframes fadeIn{
-from{opacity:0; transform:translateY(20px)}
-to{opacity:1; transform:translateY(0)}
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes zoomIn{
+from{transform:scale(.8);opacity:0}
+to{transform:scale(1);opacity:1}
 }
 
 </style>
@@ -128,48 +206,65 @@ to{opacity:1; transform:translateY(0)}
 
 <body>
 
-<div id="intro">
+<div id="protocol-screen">
 
-<img src="logo1.png" class="logo">
+<div class="protocol-box">
+
+<h2>GERBANG MASUK GFC</h2>
+
+<p>Halo calon member GFC.</p>
+<p>Selamat datang di Grafik Flow Community.</p>
+
+<div style="display:flex;justify-content:center;margin-top:20px;" onclick="toggleCheck()">
+
+<div id="check" class="checkbox">✓</div>
+<span>Saya paham & siap masuk</span>
+
+</div>
+
+<button id="enterBtn" onclick="enterPortal()">TUNGGU PERSETUJUAN</button>
+
+</div>
+</div>
+
+<div id="loader">
+
+<svg class="logo" width="130" height="130" viewBox="0 0 200 200">
+<ellipse cx="100" cy="100" rx="90" ry="30" stroke="#00eaff" stroke-width="3" fill="none"/>
+<ellipse cx="100" cy="100" rx="90" ry="30" stroke="#00eaff" stroke-width="3" fill="none" transform="rotate(60 100 100)"/>
+<text x="50%" y="55%" text-anchor="middle" fill="white" font-family="Orbitron" font-size="42">GFC</text>
+</svg>
+
+<div class="loader-text">MEMBUKA SISTEM...</div>
+
+</div>
+
+<div class="wrap" id="main">
+
+<header>
 
 <h1>GRAFIK FLOW COMMUNITY</h1>
-<p>Selamat datang di portal resmi komunitas GFC</p>
 
-<img src="logo2.png" class="banner">
+<div id="clock" class="clock">00:00:00</div>
 
-<button onclick="masuk()">MASUK KE PORTAL</button>
-
-</div>
-
-
-<div id="portal">
-
-<div class="header">
-<h2>PORTAL GFC</h2>
-<div class="clock" id="clock"></div>
-</div>
+</header>
 
 <div class="grid">
 
-<div class="card">
-<h3>Informasi Portal</h3>
-<p>Dokumentasi sistem GFC</p>
+<div class="card" onclick="goto('https://whatsapp.com/channel/0029Vb7EA5PFcow09JspfL3P')">
+<h2>Saluran WhatsApp</h2>
+<p>Ikuti update dan informasi resmi komunitas.</p>
 </div>
 
-<a class="card" href="https://chat.whatsapp.com/E8MAfR23QTe57ItkHFEVKb?mode=gi_t">
-<h3>GFC GEN 1 👑</h3>
-<p>Gabung ke grup generasi pertama</p>
-</a>
-
-<div class="card">
-<h3>GFC GEN 2 🛠️</h3>
-<p>Coming Soon</p>
+<div class="card" onclick="goto('https://chat.whatsapp.com/E8MAfR23QTe57ItkHFEVKb?mode=gi_t')">
+<h2>GFC GEN 1</h2>
+<p>Grup utama komunitas Grafik Flow Community.</p>
 </div>
 
-<a class="card" href="https://whatsapp.com/channel/0029Vb7EA5PFcow09JspfL3P">
-<h3>Saluran GFC 🪐</h3>
-<p>Ikuti channel resmi komunitas</p>
-</a>
+<div class="card">
+<h2>GFC GEN 2</h2>
+<p>Coming Soon.</p>
+</div>
 
 </div>
 
@@ -177,20 +272,56 @@ to{opacity:1; transform:translateY(0)}
 
 <script>
 
-function masuk(){
-document.getElementById("intro").style.display="none"
-document.getElementById("portal").style.display="block"
+let approved=false
+
+function toggleCheck(){
+
+approved=!approved
+const box=document.getElementById("check")
+const btn=document.getElementById("enterBtn")
+
+if(approved){
+box.classList.add("active")
+btn.innerText="MASUK PORTAL"
+}else{
+box.classList.remove("active")
+btn.innerText="TUNGGU PERSETUJUAN"
+}
+
+}
+
+function enterPortal(){
+
+if(!approved)return
+
+document.getElementById("protocol-screen").style.display="none"
+document.getElementById("loader").style.display="flex"
+
+setTimeout(()=>{
+document.getElementById("loader").style.display="none"
+document.getElementById("main").style.display="block"
+document.body.style.overflow="auto"
+},2200)
+
 }
 
 function updateClock(){
-let now = new Date()
-let h = String(now.getHours()).padStart(2,"0")
-let m = String(now.getMinutes()).padStart(2,"0")
-let s = String(now.getSeconds()).padStart(2,"0")
-document.getElementById("clock").innerHTML = `${h}:${m}:${s}`
+
+const now=new Date()
+
+let h=String(now.getHours()).padStart(2,"0")
+let m=String(now.getMinutes()).padStart(2,"0")
+let s=String(now.getSeconds()).padStart(2,"0")
+
+document.getElementById("clock").innerText=`${h}:${m}:${s}`
+
 }
 
 setInterval(updateClock,1000)
+
+function goto(url){
+window.location.href=url
+}
 
 </script>
 

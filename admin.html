@@ -1,1 +1,157 @@
-tes
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel GFC</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Inter,sans-serif;
+background:#05070d;
+color:white;
+overflow:hidden;
+}
+
+/* background bintang */
+
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:starsMove 80s linear infinite;
+opacity:.25;
+z-index:-1;
+}
+
+@keyframes starsMove{
+from{transform:translate(0,0)}
+to{transform:translate(-500px,-500px)}
+}
+
+/* layout */
+
+.wrap{
+padding:30px;
+height:100vh;
+overflow:auto;
+animation:fadeIn 1s;
+}
+
+header{
+text-align:center;
+margin-bottom:40px;
+}
+
+h1{
+font-family:Orbitron;
+letter-spacing:4px;
+}
+
+.sub{
+opacity:.6;
+font-size:14px;
+}
+
+/* tombol grid */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:12px;
+cursor:pointer;
+transition:.35s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.04);
+box-shadow:0 0 20px rgba(0,255,255,.4);
+}
+
+.card h2{
+font-family:Orbitron;
+font-size:16px;
+margin:10px 0;
+}
+
+.card p{
+font-size:13px;
+opacity:.7;
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header>
+<h1>ADMIN GFC</h1>
+<div class="sub">Grafik Flow Community</div>
+</header>
+
+<div class="grid">
+
+<div class="card" onclick="goto('https://tiktok.com/ruzzyuna')">
+<h2>Fairuz Owner GFC</h2>
+<p>Membantu member</p>
+</div>
+
+<div class="card" onclick="goto('https://tiktok.com/nina.tempest')">
+<h2>Nina Co Owner</h2>
+<p>Membantu Owner saat kesusahan</p>
+</div>
+
+<div class="card" onclick="goto('https://tiktok.com/')">
+<h2>Afwal Wakil</h2>
+<p>Membantu member yang kebingungan dalam mengedit</p>
+</div>
+
+<div class="card" onclick="goto('https://tiktok.com/')">
+<h2>Karane Admin</h2>
+<p>Memberi waifu setiap hari 🗿👍</p>
+</div>
+
+<div class="card" onclick="goto('https://tiktok.com/ridsukanasgor3')">
+<h2>Farid Admin</h2>
+<p>Mengelola partner partner GFC</p>
+</div>
+
+<div class="card" onclick="goto('index.html')">
+<h2>Kembali Portal</h2>
+<p>Kembali ke halaman utama</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function goto(url){
+window.location.href = url;
+}
+</script>
+
+</body>
+</html>

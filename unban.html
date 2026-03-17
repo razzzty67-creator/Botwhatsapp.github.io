@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNBAN WHATSAPP - REQUEST REVIEW 🔥</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000, #1a0000);
+            color: #ff0000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(30, 0, 0, 0.85);
+            border: 3px solid #ff0000;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 60px #ff0000, 0 0 100px #ff3333 inset;
+            text-align: center;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000 inset; }
+            to   { box-shadow: 0 0 80px #ff4444, 0 0 140px #ff2222 inset; }
+        }
+        h1 {
+            font-size: 2.8em;
+            margin: 0 0 20px;
+            text-shadow: 0 0 15px #ff0000;
+            letter-spacing: 3px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ff6666;
+        }
+        label {
+            display: block;
+            font-size: 1.3em;
+            margin: 20px 0 10px;
+            color: #ff9999;
+        }
+        input[type="tel"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #ff3333;
+            border-radius: 10px;
+            background: #0f0000;
+            color: #ffffff;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            height: 180px;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #ff3333;
+            border-radius: 10px;
+            background: #0f0000;
+            color: #ffdddd;
+            resize: none;
+            margin: 20px 0;
+        }
+        button {
+            background: linear-gradient(90deg, #ff0000, #cc0000);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 30px #ff0000;
+            transition: all 0.3s;
+        }
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 60px #ff4444;
+        }
+        .warning {
+            font-size: 0.9em;
+            color: #ffaaaa;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>UNBAN WHATSAPP 🔥 Ω</h1>
+    <p class="subtitle">Masukin Nomor Yang Kena Ban – Kami Kirim Langsung Ke Support WhatsApp 🌌</p>
+
+    <form id="unbanForm" action="mailto:support@whatsapp.com" method="post" enctype="text/plain">
+        <label for="nomor">NOMOR HP TERKENA BAN (internasional, contoh: +628123456789):</label>
+        <input type="tel" id="nomor" name="nomor" placeholder="+62xxxxxxxxxx" required>
+
+        <label for="pesan">Pesan Tinjauan (Sudah Siap Dikirim):</label>
+        <textarea id="pesan" name="pesan" required>
+Hallo WhatsApp Support Team,
+
+My name is Rizhyuyouka Official. I kindly request your assistance to review and restore my WhatsApp account, which has been banned due to alleged spam activities.
+
+I had no intention to violate WhatsApp's Terms of Service. I use this account for private communication with family and for legitimate business purposes, specifically selling official and useful digital products to support my studies. I have always used WhatsApp carefully and in compliance with the rules.
+
+The ban occurred suddenly while I was replying to customer messages. Therefore, I politely ask you to re-review my account and lift the restriction.
+
+Thank you very much for your attention and support.
+Best regards,
+Rizhyuyouka Official
+
+Phone number: [NOMOR AKAN OTOMATIS MASUK]
+        </textarea>
+
+        <button type="submit">KIRIM KE WHATSAPP SUPPORT 🔥</button>
+    </form>
+
+    <p class="warning">Pastikan email lu aktif (Gmail lebih bagus). Ini bakal buka email client lu langsung. Good luck bro, semoga cepet ke-unban π</p>
+</div>
+
+<script>
+    document.getElementById('unbanForm').addEventListener('submit', function(e) {
+        const nomor = document.getElementById('nomor').value;
+        if (!nomor) {
+            alert('Masukin nomor dulu bro! 🔥');
+            e.preventDefault();
+            return;
+        }
+        // Optional: alert sukses vibe
+        setTimeout(() => {
+            alert('Request dikirim ke WhatsApp Support! Tunggu balasan ya bro Ω');
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

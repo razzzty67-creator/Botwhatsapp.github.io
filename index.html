@@ -17,8 +17,6 @@ color:white;
 overflow:hidden;
 }
 
-/* star background */
-
 body::before{
 content:"";
 position:fixed;
@@ -46,7 +44,6 @@ align-items:center;
 justify-content:center;
 background:#05070d;
 z-index:10;
-animation:fadeIn 1s;
 }
 
 .protocol-box{
@@ -56,13 +53,6 @@ border-radius:12px;
 text-align:center;
 max-width:480px;
 box-shadow:0 0 25px rgba(0,255,255,.2);
-animation:zoomIn .8s ease;
-}
-
-.protocol-box h2{
-font-family:Orbitron;
-margin-top:0;
-letter-spacing:2px;
 }
 
 .checkbox{
@@ -88,11 +78,6 @@ border:none;
 background:#00eaff;
 font-weight:bold;
 cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
 }
 
 /* loader */
@@ -106,7 +91,6 @@ align-items:center;
 justify-content:center;
 flex-direction:column;
 background:#05070d;
-z-index:9;
 }
 
 .logo{
@@ -118,28 +102,13 @@ from{transform:rotate(0)}
 to{transform:rotate(360deg)}
 }
 
-.loader-text{
-margin-top:20px;
-font-family:Orbitron;
-color:#00eaff;
-letter-spacing:3px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{opacity:.4}
-50%{opacity:1}
-100%{opacity:.4}
-}
-
-/* portal */
+/* main */
 
 .wrap{
 display:none;
 padding:25px;
 height:100vh;
 overflow:auto;
-animation:fadeIn 1s;
 }
 
 header{
@@ -149,13 +118,11 @@ margin-bottom:30px;
 
 h1{
 font-family:Orbitron;
-letter-spacing:4px;
 }
 
 .clock{
 font-size:30px;
 color:#00eaff;
-margin-top:10px;
 }
 
 /* cards */
@@ -168,37 +135,23 @@ gap:20px;
 
 .card{
 background:#111;
-padding:20px;
+padding:15px;
 border-radius:12px;
 cursor:pointer;
-transition:.35s;
-position:relative;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px) scale(1.04);
+transform:translateY(-5px);
 box-shadow:0 0 20px rgba(0,255,255,.4);
 }
 
-.card h2{
-font-family:Orbitron;
-font-size:17px;
-margin:10px 0;
-}
-
-.card p{
-font-size:13px;
-opacity:.7;
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
-
-@keyframes zoomIn{
-from{transform:scale(.8);opacity:0}
-to{transform:scale(1);opacity:1}
+.card img{
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
 }
 
 </style>
@@ -207,77 +160,60 @@ to{transform:scale(1);opacity:1}
 <body>
 
 <div id="protocol-screen">
-
 <div class="protocol-box">
-
 <h2>INI ADALAH WEBSITE BOT ALYA MD</h2>
 
-<p>Halo Perkenalkan Bot alya MD</p>
-<p>Alya MD.</p>
-
-<p></p>
-
 <div style="display:flex;justify-content:center;margin-top:20px;" onclick="toggleCheck()">
-
 <div id="check" class="checkbox">✓</div>
 <span>Saya paham & siap masuk</span>
-
 </div>
 
 <button id="enterBtn" onclick="enterPortal()">TUNGGU PERSETUJUAN</button>
-
 </div>
 </div>
 
 <div id="loader">
-
-<svg class="logo" width="130" height="130" viewBox="0 0 200 200">
-<ellipse cx="100" cy="100" rx="90" ry="30" stroke="#00eaff" stroke-width="3" fill="none"/>
-<ellipse cx="100" cy="100" rx="90" ry="30" stroke="#00eaff" stroke-width="3" fill="none" transform="rotate(60 100 100)"/>
-<text x="50%" y="55%" text-anchor="middle" fill="white" font-family="Orbitron" font-size="42">ALYA</text>
-</svg>
-
-<div class="loader-text">MEMBUKA SISTEM...</div>
-
+<img src="download.jpg" width="120" class="logo">
+<p>MEMBUKA SISTEM...</p>
 </div>
 
 <div class="wrap" id="main">
 
 <header>
-
 <h1>BOT ALYA MD</h1>
-
 <div id="clock" class="clock">00:00:00</div>
-
 </header>
 
 <div class="grid">
 
-<div class="card"
-onclick="window.location.href='dev.html'">
-<h2>pembuat website</h2>
-<p>developer website</p>
+<div class="card" onclick="window.location.href='dev.html'">
+<img src="download.jpg">
+<h2>Pembuat Website</h2>
+<p>Developer website</p>
 </div>
 
 <div class="card" onclick="goto('https://whatsapp.com/channel/0029VbBxTWc6LwHemkh5tt11')">
+<img src="download.jpg">
 <h2>Saluran ALYA MD</h2>
-<p>Ikuti update dan informasi dari Bot alya MD.</p>
+<p>Ikuti update bot</p>
 </div>
 
 <div class="card" onclick="goto('https://wa.me/6285810537050?text=min+mau+sewabot')">
-<h2>OWNER</h2>
-<p>Hubungi owner jika ingin menyewa bot whatsapp.</p>
+<img src="download.jpg">
+<h2>Owner</h2>
+<p>Sewa bot WhatsApp</p>
 </div>
 
 <div class="card" onclick="goto('https://tiktok.com/@razzziy')">
-<h2>TIKTOK OWNER</h2>
-<p>Ikuti Tiktok Owner</p>
+<img src="download.jpg">
+<h2>Tiktok Owner</h2>
+<p>Follow TikTok</p>
 </div>
 
-<div class="card"
-onclick="window.location.href='unban.html'">
-<h2>unban wa</h2>
-<p>unban wa 3-5 jam langsung di pulihkan</p>
+<div class="card" onclick="window.location.href='unban.html'">
+<img src="download.jpg">
+<h2>Unban WA</h2>
+<p>Proses cepat</p>
 </div>
 
 </div>
@@ -289,7 +225,6 @@ onclick="window.location.href='unban.html'">
 let approved=false
 
 function toggleCheck(){
-
 approved=!approved
 const box=document.getElementById("check")
 const btn=document.getElementById("enterBtn")
@@ -301,11 +236,9 @@ btn.innerText="MASUK KE WEBSITE"
 box.classList.remove("active")
 btn.innerText="TUNGGU PERSETUJUAN"
 }
-
 }
 
 function enterPortal(){
-
 if(!approved)return
 
 document.getElementById("protocol-screen").style.display="none"
@@ -315,20 +248,15 @@ setTimeout(()=>{
 document.getElementById("loader").style.display="none"
 document.getElementById("main").style.display="block"
 document.body.style.overflow="auto"
-},2200)
-
+},2000)
 }
 
 function updateClock(){
-
 const now=new Date()
-
 let h=String(now.getHours()).padStart(2,"0")
 let m=String(now.getMinutes()).padStart(2,"0")
 let s=String(now.getSeconds()).padStart(2,"0")
-
 document.getElementById("clock").innerText=`${h}:${m}:${s}`
-
 }
 
 setInterval(updateClock,1000)

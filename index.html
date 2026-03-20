@@ -8,141 +8,157 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 body{
-margin:0;
-font-family:Inter,sans-serif;
-background:#fff;
-color:#ff4da6;
-overflow:hidden;
+    margin:0;
+    font-family:Inter,sans-serif;
+    background:#fff;
+    color:#ff4da6;
+    overflow:hidden;
 }
 
 /* intro */
-
 #protocol-screen{
-position:fixed;
-width:100%;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#fff;
-z-index:10;
+    position:fixed;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(135deg,#ffe6f2,#fff0f5);
+    z-index:10;
 }
 
 .protocol-box{
-background:#ffe6f2;
-padding:35px;
-border-radius:12px;
-text-align:center;
-max-width:480px;
-box-shadow:0 0 25px rgba(255,77,166,.3);
+    background:#fff0f5;
+    padding:40px;
+    border-radius:16px;
+    text-align:center;
+    max-width:500px;
+    box-shadow:0 0 35px rgba(255,77,166,.4);
 }
 
 .checkbox{
-width:22px;
-height:22px;
-border:2px solid #ff4da6;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-right:8px;
-cursor:pointer;
+    width:24px;
+    height:24px;
+    border:2px solid #ff4da6;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:10px;
+    cursor:pointer;
+    border-radius:6px;
 }
 
 .checkbox.active{
-background:#ff4da6;
-color:white;
+    background:#ff4da6;
+    color:white;
 }
 
 button{
-margin-top:20px;
-padding:12px 25px;
-border:none;
-background:#ff4da6;
-color:white;
-font-weight:bold;
-cursor:pointer;
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    border-radius:12px;
+    background:#ff4da6;
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e63991;
 }
 
 /* loader */
-
 #loader{
-position:fixed;
-width:100%;
-height:100%;
-display:none;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-background:#fff;
+    position:fixed;
+    width:100%;
+    height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    background:#fff;
 }
 
 video{
-border-radius:12px;
-box-shadow:0 0 20px rgba(255,77,166,.3);
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(255,77,166,.4);
 }
 
 .loader-text{
-margin-top:15px;
-font-family:Orbitron;
-color:#ff4da6;
-letter-spacing:2px;
+    margin-top:20px;
+    font-family:Orbitron;
+    color:#ff4da6;
+    letter-spacing:2px;
+    font-size:18px;
 }
 
 /* main */
-
 .wrap{
-display:none;
-padding:25px;
-height:100vh;
-overflow:auto;
+    display:none;
+    padding:30px;
+    height:100vh;
+    overflow:auto;
 }
 
 header{
-text-align:center;
-margin-bottom:30px;
+    text-align:center;
+    margin-bottom:35px;
 }
 
 h1{
-font-family:Orbitron;
-color:#ff4da6;
+    font-family:Orbitron;
+    color:#ff4da6;
 }
 
 .clock{
-font-size:30px;
-color:#ff4da6;
+    font-size:32px;
+    color:#ff4da6;
+    margin-top:5px;
 }
 
 /* cards */
-
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
 }
 
 .card{
-background:#ffe6f2;
-padding:15px;
-border-radius:12px;
-cursor:pointer;
-transition:.3s;
+    background:#fff0f5;
+    padding:18px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+    text-align:center;
 }
 
 .card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(255,77,166,.4);
+    transform:translateY(-6px);
+    box-shadow:0 0 25px rgba(255,77,166,.45);
 }
 
 .card img{
-width:100%;
-height:120px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:10px;
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:12px;
 }
 
+.card h2{
+    color:#ff4da6;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.card p{
+    color:#ff4da6;
+    font-size:14px;
+}
 </style>
 </head>
 
@@ -150,9 +166,10 @@ margin-bottom:10px;
 
 <div id="protocol-screen">
 <div class="protocol-box">
-<h2>INI ADALAH WEBSITE BOT ALYA MD</h2>
+<h2>SELAMAT DATANG DI WEBSITE BOT ALYA MD</h2>
+<p>Pastikan kamu memahami aturan sebelum masuk portal</p>
 
-<div style="display:flex;justify-content:center;margin-top:20px;" onclick="toggleCheck()">
+<div style="display:flex;justify-content:center;margin-top:25px;" onclick="toggleCheck()">
 <div id="check" class="checkbox">✓</div>
 <span>Saya paham & siap masuk</span>
 </div>
@@ -163,24 +180,19 @@ margin-bottom:10px;
 
 <!-- VIDEO INTRO -->
 <div id="loader">
-
-<video id="introVideo" width="320" controls autoplay muted>
-  <source src="video6190614742030097778.mp4" type="video/mp4">
+<video id="introVideo" width="480" controls autoplay muted>
+  <source src="tikcdn_beubagah_com_5ac3b012_bbd1_44c1_be25_1d20275ac829.mp4" type="video/mp4">
 </video>
-
 <div class="loader-text">MEMBUKA SISTEM...</div>
-
 </div>
 
 <div class="wrap" id="main">
-
 <header>
 <h1>BOT ALYA MD</h1>
 <div id="clock" class="clock">00:00:00</div>
 </header>
 
 <div class="grid">
-
 <div class="card" onclick="window.location.href='dev.html'">
 <img src="download.jpg">
 <h2>Pembuat Website</h2>
@@ -207,59 +219,49 @@ margin-bottom:10px;
 <h2>Unban WA</h2>
 <p>Proses cepat</p>
 </div>
-
 </div>
-
 </div>
 
 <script>
-
 let approved=false
-
 function toggleCheck(){
-approved=!approved
-const box=document.getElementById("check")
-const btn=document.getElementById("enterBtn")
-
-if(approved){
-box.classList.add("active")
-btn.innerText="MASUK KE WEBSITE"
-}else{
-box.classList.remove("active")
-btn.innerText="TUNGGU PERSETUJUAN"
-}
+    approved=!approved
+    const box=document.getElementById("check")
+    const btn=document.getElementById("enterBtn")
+    if(approved){
+        box.classList.add("active")
+        btn.innerText="MASUK KE WEBSITE"
+    }else{
+        box.classList.remove("active")
+        btn.innerText="TUNGGU PERSETUJUAN"
+    }
 }
 
 function enterPortal(){
-if(!approved)return
+    if(!approved) return
+    document.getElementById("protocol-screen").style.display="none"
+    document.getElementById("loader").style.display="flex"
 
-document.getElementById("protocol-screen").style.display="none"
-document.getElementById("loader").style.display="flex"
-
-const video = document.getElementById("introVideo")
-
-video.onended = () => {
-document.getElementById("loader").style.display="none"
-document.getElementById("main").style.display="block"
-document.body.style.overflow="auto"
-}
-
+    const video=document.getElementById("introVideo")
+    video.onended=()=>{
+        document.getElementById("loader").style.display="none"
+        document.getElementById("main").style.display="block"
+        document.body.style.overflow="auto"
+    }
 }
 
 function updateClock(){
-const now=new Date()
-let h=String(now.getHours()).padStart(2,"0")
-let m=String(now.getMinutes()).padStart(2,"0")
-let s=String(now.getSeconds()).padStart(2,"0")
-document.getElementById("clock").innerText=`${h}:${m}:${s}`
+    const now=new Date()
+    let h=String(now.getHours()).padStart(2,"0")
+    let m=String(now.getMinutes()).padStart(2,"0")
+    let s=String(now.getSeconds()).padStart(2,"0")
+    document.getElementById("clock").innerText=`${h}:${m}:${s}`
 }
-
 setInterval(updateClock,1000)
 
 function goto(url){
-window.location.href=url
+    window.location.href=url
 }
-
 </script>
 
 </body>

@@ -65,7 +65,7 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* loader (video intro) */
+/* loader */
 
 #loader{
 position:fixed;
@@ -76,6 +76,11 @@ align-items:center;
 justify-content:center;
 flex-direction:column;
 background:#fff;
+}
+
+video{
+border-radius:12px;
+box-shadow:0 0 20px rgba(255,77,166,.3);
 }
 
 .loader-text{
@@ -159,7 +164,7 @@ margin-bottom:10px;
 <!-- VIDEO INTRO -->
 <div id="loader">
 
-<video id="introVideo" width="250" autoplay muted>
+<video id="introVideo" width="320" controls autoplay muted>
   <source src="video6190614742030097778.mp4" type="video/mp4">
 </video>
 

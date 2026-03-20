@@ -93,13 +93,10 @@ flex-direction:column;
 background:#05070d;
 }
 
-.logo{
-animation:spin 6s linear infinite;
-}
-
-@keyframes spin{
-from{transform:rotate(0)}
-to{transform:rotate(360deg)}
+.loader-text{
+margin-top:20px;
+font-family:Orbitron;
+color:#00eaff;
 }
 
 /* main */
@@ -173,8 +170,7 @@ margin-bottom:10px;
 </div>
 
 <div id="loader">
-<img src="download.jpg" width="120" class="logo">
-<p>MEMBUKA SISTEM...</p>
+<div class="loader-text">MEMBUKA SISTEM...</div>
 </div>
 
 <div class="wrap" id="main">
@@ -186,32 +182,30 @@ margin-bottom:10px;
 
 <div class="grid">
 
+<!-- ADA GAMBAR -->
 <div class="card" onclick="window.location.href='dev.html'">
 <img src="download.jpg">
 <h2>Pembuat Website</h2>
 <p>Developer website</p>
 </div>
 
+<!-- TANPA GAMBAR -->
 <div class="card" onclick="goto('https://whatsapp.com/channel/0029VbBxTWc6LwHemkh5tt11')">
-<img src="download.jpg">
 <h2>Saluran ALYA MD</h2>
 <p>Ikuti update bot</p>
 </div>
 
 <div class="card" onclick="goto('https://wa.me/6285810537050?text=min+mau+sewabot')">
-<img src="download.jpg">
 <h2>Owner</h2>
 <p>Sewa bot WhatsApp</p>
 </div>
 
 <div class="card" onclick="goto('https://tiktok.com/@razzziy')">
-<img src="download.jpg">
 <h2>Tiktok Owner</h2>
 <p>Follow TikTok</p>
 </div>
 
 <div class="card" onclick="window.location.href='unban.html'">
-<img src="download.jpg">
 <h2>Unban WA</h2>
 <p>Proses cepat</p>
 </div>

@@ -12,25 +12,9 @@
 body{
 margin:0;
 font-family:Inter,sans-serif;
-background:#05070d;
-color:white;
+background:#fff;
+color:#ff4da6;
 overflow:hidden;
-}
-
-body::before{
-content:"";
-position:fixed;
-width:200%;
-height:200%;
-background:url("https://www.transparenttextures.com/patterns/stardust.png");
-animation:starsMove 80s linear infinite;
-opacity:.25;
-z-index:-1;
-}
-
-@keyframes starsMove{
-from{transform:translate(0,0)}
-to{transform:translate(-500px,-500px)}
 }
 
 /* intro */
@@ -42,23 +26,23 @@ height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#05070d;
+background:#fff;
 z-index:10;
 }
 
 .protocol-box{
-background:#111;
+background:#ffe6f2;
 padding:35px;
 border-radius:12px;
 text-align:center;
 max-width:480px;
-box-shadow:0 0 25px rgba(0,255,255,.2);
+box-shadow:0 0 25px rgba(255,77,166,.3);
 }
 
 .checkbox{
 width:22px;
 height:22px;
-border:2px solid #00eaff;
+border:2px solid #ff4da6;
 display:inline-flex;
 align-items:center;
 justify-content:center;
@@ -67,20 +51,21 @@ cursor:pointer;
 }
 
 .checkbox.active{
-background:#00eaff;
-color:black;
+background:#ff4da6;
+color:white;
 }
 
 button{
 margin-top:20px;
 padding:12px 25px;
 border:none;
-background:#00eaff;
+background:#ff4da6;
+color:white;
 font-weight:bold;
 cursor:pointer;
 }
 
-/* loader */
+/* loader (video intro) */
 
 #loader{
 position:fixed;
@@ -90,13 +75,14 @@ display:none;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-background:#05070d;
+background:#fff;
 }
 
 .loader-text{
-margin-top:20px;
+margin-top:15px;
 font-family:Orbitron;
-color:#00eaff;
+color:#ff4da6;
+letter-spacing:2px;
 }
 
 /* main */
@@ -115,11 +101,12 @@ margin-bottom:30px;
 
 h1{
 font-family:Orbitron;
+color:#ff4da6;
 }
 
 .clock{
 font-size:30px;
-color:#00eaff;
+color:#ff4da6;
 }
 
 /* cards */
@@ -131,7 +118,7 @@ gap:20px;
 }
 
 .card{
-background:#111;
+background:#ffe6f2;
 padding:15px;
 border-radius:12px;
 cursor:pointer;
@@ -140,7 +127,7 @@ transition:.3s;
 
 .card:hover{
 transform:translateY(-5px);
-box-shadow:0 0 20px rgba(0,255,255,.4);
+box-shadow:0 0 20px rgba(255,77,166,.4);
 }
 
 .card img{
@@ -169,8 +156,15 @@ margin-bottom:10px;
 </div>
 </div>
 
+<!-- VIDEO INTRO -->
 <div id="loader">
+
+<video id="introVideo" width="250" autoplay muted>
+  <source src="video6190614742030097778.mp4" type="video/mp4">
+</video>
+
 <div class="loader-text">MEMBUKA SISTEM...</div>
+
 </div>
 
 <div class="wrap" id="main">
@@ -182,14 +176,12 @@ margin-bottom:10px;
 
 <div class="grid">
 
-<!-- ADA GAMBAR -->
 <div class="card" onclick="window.location.href='dev.html'">
 <img src="download.jpg">
 <h2>Pembuat Website</h2>
 <p>Developer website</p>
 </div>
 
-<!-- TANPA GAMBAR -->
 <div class="card" onclick="goto('https://whatsapp.com/channel/0029VbBxTWc6LwHemkh5tt11')">
 <h2>Saluran ALYA MD</h2>
 <p>Ikuti update bot</p>
@@ -238,11 +230,14 @@ if(!approved)return
 document.getElementById("protocol-screen").style.display="none"
 document.getElementById("loader").style.display="flex"
 
-setTimeout(()=>{
+const video = document.getElementById("introVideo")
+
+video.onended = () => {
 document.getElementById("loader").style.display="none"
 document.getElementById("main").style.display="block"
 document.body.style.overflow="auto"
-},2000)
+}
+
 }
 
 function updateClock(){

@@ -11,7 +11,7 @@
 body{
     margin:0;
     font-family:Inter,sans-serif;
-    background:#fff;
+    background: linear-gradient(135deg,#ffe6f2,#fff0f5);
     color:#ff4da6;
     overflow:hidden;
 }
@@ -24,7 +24,6 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    background: linear-gradient(135deg,#ffe6f2,#fff0f5);
     z-index:10;
 }
 
@@ -120,7 +119,6 @@ h1{
     margin-top:5px;
 }
 
-/* cards */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -159,6 +157,23 @@ h1{
     color:#ff4da6;
     font-size:14px;
 }
+
+/* audio button */
+#audioBtn{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#ff4da6;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#audioBtn:hover{
+    background:#e63991;
+}
 </style>
 </head>
 
@@ -180,10 +195,11 @@ h1{
 
 <!-- VIDEO INTRO -->
 <div id="loader">
-<video id="introVideo" width="480" controls autoplay muted>
+<video id="introVideo" width="480" autoplay muted>
   <source src="tikcdn_beubagah_com_5ac3b012_bbd1_44c1_be25_1d20275ac829.mp4" type="video/mp4">
 </video>
 <div class="loader-text">MEMBUKA SISTEM...</div>
+<button id="audioBtn">DOWNLOAD AUDIO MP3</button>
 </div>
 
 <div class="wrap" id="main">
@@ -223,9 +239,9 @@ h1{
 </div>
 
 <script>
-let approved=false
+let approved=false;
 function toggleCheck(){
-    approved=!approved
+    approved=!approved;
     const box=document.getElementById("check")
     const btn=document.getElementById("enterBtn")
     if(approved){
@@ -247,6 +263,16 @@ function enterPortal(){
         document.getElementById("loader").style.display="none"
         document.getElementById("main").style.display="block"
         document.body.style.overflow="auto"
+    }
+
+    // setup audio download
+    const audioBtn = document.getElementById('audioBtn')
+    audioBtn.onclick = () => {
+        const videoSrc = video.querySelector('source').src
+        const audio = document.createElement('a')
+        audio.href = videoSrc
+        audio.download = 'intro_audio.mp3'
+        audio.click()
     }
 }
 

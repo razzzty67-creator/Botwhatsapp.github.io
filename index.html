@@ -80,6 +80,8 @@ button:hover{
     justify-content:center;
     flex-direction:column;
     background:#fff;
+    opacity:0;
+    transition:opacity 1s;
 }
 
 video{
@@ -101,6 +103,8 @@ video{
     padding:30px;
     height:100vh;
     overflow:auto;
+    opacity:0;
+    transition:opacity 1s;
 }
 
 header{
@@ -157,23 +161,6 @@ h1{
     color:#ff4da6;
     font-size:14px;
 }
-
-/* audio button */
-#audioBtn{
-    margin-top:15px;
-    padding:10px 20px;
-    background:#ff4da6;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-#audioBtn:hover{
-    background:#e63991;
-}
 </style>
 </head>
 
@@ -195,11 +182,11 @@ h1{
 
 <!-- VIDEO INTRO -->
 <div id="loader">
-<video id="introVideo" width="480" autoplay muted>
+<video id="introVideo" width="480" autoplay>
   <source src="tikcdn_beubagah_com_5ac3b012_bbd1_44c1_be25_1d20275ac829.mp4" type="video/mp4">
+  Browser kamu tidak mendukung video.
 </video>
 <div class="loader-text">MEMBUKA SISTEM...</div>
-<button id="audioBtn">DOWNLOAD AUDIO MP3</button>
 </div>
 
 <div class="wrap" id="main">
@@ -256,23 +243,20 @@ function toggleCheck(){
 function enterPortal(){
     if(!approved) return
     document.getElementById("protocol-screen").style.display="none"
-    document.getElementById("loader").style.display="flex"
+    const loader=document.getElementById("loader")
+    loader.style.display="flex"
+    setTimeout(()=>loader.style.opacity=1,50)
 
     const video=document.getElementById("introVideo")
     video.onended=()=>{
-        document.getElementById("loader").style.display="none"
-        document.getElementById("main").style.display="block"
-        document.body.style.overflow="auto"
-    }
-
-    // setup audio download
-    const audioBtn = document.getElementById('audioBtn')
-    audioBtn.onclick = () => {
-        const videoSrc = video.querySelector('source').src
-        const audio = document.createElement('a')
-        audio.href = videoSrc
-        audio.download = 'intro_audio.mp3'
-        audio.click()
+        loader.style.opacity=0
+        setTimeout(()=>{
+            loader.style.display="none"
+            const main=document.getElementById("main")
+            main.style.display="block"
+            setTimeout(()=>main.style.opacity=1,50)
+            document.body.style.overflow="auto"
+        },800)
     }
 }
 
